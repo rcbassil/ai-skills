@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Refined `README.md` introductory paragraph and skills table to perfectly align with skill definitions.
 
 ### Added
+- `.opencode/` folder with symbolic links to all available skills for streamlined access.
 - `json-to-pydantic` skill and examples to convert JSON snippets to structured Python Pydantic models.
 - `readme-updater` skill to maintain updating logic for README.md.
 - `changelog-tracker` skill to manage and track project changelogs.
@@ -24,6 +25,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Apache 2.0 license and header template.
 - Added `uv.lock` to track dependencies.
 - Added `.gitignore` to exclude local environments (`.venv`).
+
+### Changed
+- Updated `.gitignore` to manage `.opencode/` subdirectories and configuration files.
+- Rewrote `README.md` with real GitHub clone URL, skills table, project structure diagram, and clearer section organization.
 
 ### Changed
 - Updated `README.md` to formally document newly-added skills and instructions.

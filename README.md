@@ -64,6 +64,7 @@ Skills are activated by communicating your intent to the agent inside your works
 ```
 .
 ├── .agent/skills/       # Skill definitions (SKILL.md + resources per skill)
+├── .opencode/           # Symbolic links to skills (for developer access)
 ├── src/agent/           # Python package source
 ├── tests/               # Test suite
 ├── docs/                # Documentation
