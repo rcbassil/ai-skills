@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints
+
+# Virtual Environment
+.venv/
+env/
+venv/
+ENV/
+
+# uv
+.uv/
+
+# Local settings
+.env
+.vscode/
+.idea/
+.DS_Store
