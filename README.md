@@ -14,28 +14,27 @@ The currently included skills enhance your project workspace organically:
 
 - **Python:** version 3.13 or higher.
 
-## Installation & Deployment
-
-Currently, the project focuses on these native agent capabilities and requires no complex third-party dependencies from `pyproject.toml`.
-
-To spin it up, just clone and enter the repository:
+To spin it up, clone the repository and use [uv](https://github.com/astral-sh/uv) or pip:
 
 ```bash
 git clone <your-repo-url>
 cd geminiSkills
-```
 
-If dependencies are added in the future, you can resolve them natively via pip from the `pyproject.toml` file:
+# Using uv (recommended)
+uv run main.py
 
-```bash
+# Using pip
 pip install .
+python main.py
 ```
-
-## Running the Application
 
 The main execution points to a straightforward entry script. To run it locally:
 
 ```bash
+# Using uv
+uv run main.py
+
+# Using python
 python main.py
 ```
 

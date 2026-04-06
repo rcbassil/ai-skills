@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `license-header-adder` skill to automatically append license headers.
 - Initial Python project structure.
 - Apache 2.0 license and header template.
+- Added `uv.lock` to track dependencies.
+- Added `.gitignore` to exclude local environments (`.venv`).
 
 ### Changed
 - Updated `README.md` to formally document newly-added skills and instructions.
