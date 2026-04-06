@@ -1,17 +1,17 @@
 # AI Skills
 
-A curated collection of reusable agent skills for the `.agent/skills` framework. Each skill encapsulates a focused capability — from formatting commit messages to generating Pydantic models — that an AI coding assistant can invoke on demand inside any workspace.
+A curated collection of reusable agent skills for the `.agent/skills` framework. These focused capabilities — from formatting commit messages to generating Pydantic models — can be invoked on demand by an AI coding assistant inside any workspace.
 
 ## Included Skills
 
 | Skill | Description |
 |---|---|
-| **changelog-tracker** | Manages and tracks `CHANGELOG.md` updates following the [Keep a Changelog](https://keepachangelog.com/) format. |
-| **code-reviewer** | Reviews code changes for quality, readability, maintainability, and best-practice conformity. |
-| **git-commit-formatter** | Generates commit messages that follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. |
-| **json-to-pydantic** | Converts raw JSON snippets into structured Python Pydantic data models. |
-| **license-header-adder** | Appends the standard Apache 2.0 license header to new source files. |
-| **readme-updater** | Keeps `README.md` accurate and up-to-date whenever the project changes. |
+| **changelog-tracker** | Manages and tracks changelogs in the project following the "Keep a Changelog" format. |
+| **code-reviewer** | Reviews code changes for quality, readability, maintainability, and conformity to best practices. |
+| **git-commit-formatter** | Formats git commit messages according to Conventional Commits specification. |
+| **json-to-pydantic** | Converts JSON data snippets into Python Pydantic data models. |
+| **license-header-adder** | Adds the standard open-source license header to new source files. |
+| **readme-updater** | Updates the project's README.md with comprehensive, up-to-date documentation. |
 
 ## Prerequisites
 
