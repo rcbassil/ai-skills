@@ -49,6 +49,10 @@
     "readme-updater": {
       "source": "./.agents/skills/readme-updater",
       "sourceType": "local"
+    },
+    "vulnerability-scanner": {
+      "source": "./.agents/skills/vulnerability-scanner",
+      "sourceType": "local"
     }
   }
 }

@@ -17,6 +17,7 @@ A curated collection of reusable agent skills for the `.agents/skills` framework
 | **terraform-stacks** | Comprehensive guide for working with HashiCorp Terraform Stacks. |
 | **terraform-style-guide** | Generates Terraform HCL code following HashiCorp's official style conventions. |
 | **terraform-test** | Comprehensive guide for writing and running Terraform tests. |
+| **vulnerability-scanner** | Scans the codebase and dependencies for CVEs, security vulnerabilities, and IaC misconfigurations. |
 
 ## Prerequisites
 
@@ -63,6 +64,7 @@ Skills are activated by communicating your intent to the agent inside your works
 "Document project changes"     → triggers changelog-tracker
 "Convert this JSON to a model" → triggers json-to-pydantic
 "Refactor Terraform code"     → triggers refactor-module
+"Search for vulnerabilities"   → triggers vulnerability-scanner
 ```
 
 ## Project Structure
