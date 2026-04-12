@@ -2,6 +2,8 @@
 
 A curated collection of reusable agent skills for the `.agents/skills` framework. These focused capabilities — from formatting commit messages to generating Pydantic models — can be invoked on demand by an AI coding assistant inside any workspace.
 
+![aiSkills Architecture](docs/aiSkills-architecture.drawio.png)
+
 ## Included Skills
 
 | Skill | Description |
