@@ -1,0 +1,110 @@
+<mxGraphModel adaptiveColors="auto">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <mxCell id="2" value="aiSkills — Agent Skills Framework" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="20" width="800" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="3" value="How It Works" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="20" y="80" width="200" height="25" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="10" value="User Request" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="20" y="115" width="140" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="11" value="AI Coding&#xa;Assistant" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="200" y="115" width="140" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="12" value="Intent&#xa;Matches Skill?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="385" y="100" width="150" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="13" value="Load SKILL.md" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="580" y="115" width="140" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="14" value="Execute &amp; Return" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="765" y="115" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e1" value="" edge="1" source="10" target="11" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e2" value="" edge="1" source="11" target="12" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e3" value="yes" edge="1" source="12" target="13" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e4" value="" edge="1" source="13" target="14" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="15" value="Skills Catalog (.agents/skills/)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="20" y="200" width="350" height="25" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="20" value="Git &amp; Code" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="20" y="230" width="185" height="120" as="geometry"/>
+    </mxCell>
+    <mxCell id="21" value="git-commit-formatter" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="20">
+      <mxGeometry x="10" y="40" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="22" value="code-reviewer" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="20">
+      <mxGeometry x="10" y="80" width="165" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="30" value="Documentation" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="215" y="230" width="185" height="165" as="geometry"/>
+    </mxCell>
+    <mxCell id="31" value="changelog-tracker" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="30">
+      <mxGeometry x="10" y="40" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="32" value="readme-updater" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="30">
+      <mxGeometry x="10" y="80" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="33" value="license-header-adder" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="30">
+      <mxGeometry x="10" y="120" width="165" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="40" value="Data &amp; Dev" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="410" y="230" width="185" height="120" as="geometry"/>
+    </mxCell>
+    <mxCell id="41" value="json-to-pydantic" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="40">
+      <mxGeometry x="10" y="40" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="42" value="drawio-diagram" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="40">
+      <mxGeometry x="10" y="80" width="165" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="50" value="Terraform" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="605" y="230" width="185" height="255" as="geometry"/>
+    </mxCell>
+    <mxCell id="51" value="refactor-module" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="50">
+      <mxGeometry x="10" y="40" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="52" value="terraform-search-import" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="50">
+      <mxGeometry x="10" y="80" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="53" value="terraform-stacks" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="50">
+      <mxGeometry x="10" y="120" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="54" value="terraform-style-guide" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="50">
+      <mxGeometry x="10" y="160" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="55" value="terraform-test" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="50">
+      <mxGeometry x="10" y="200" width="165" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="60" value="Infrastructure" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="800" y="230" width="185" height="120" as="geometry"/>
+    </mxCell>
+    <mxCell id="61" value="kubernetes-troubleshooter" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="60">
+      <mxGeometry x="10" y="40" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="62" value="vulnerability-scanner" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="60">
+      <mxGeometry x="10" y="80" width="165" height="30" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
