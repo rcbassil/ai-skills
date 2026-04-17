@@ -21,6 +21,7 @@ A curated collection of reusable agent skills for the `.agents/skills` framework
 | **terraform-stacks** | Comprehensive guide for working with HashiCorp Terraform Stacks. |
 | **terraform-style-guide** | Generates Terraform HCL code following HashiCorp's official style conventions. |
 | **terraform-test** | Comprehensive guide for writing and running Terraform tests. |
+| **token-compressor** | Compresses prompts, context, and conversation history to reduce token usage and AI agent costs — without degrading code quality or examples. Also routes simple tasks to local small LLMs. |
 | **vulnerability-scanner** | Scans the codebase and dependencies for CVEs, security vulnerabilities, and IaC misconfigurations. |
 
 ## Prerequisites
@@ -71,6 +72,7 @@ Skills are activated by communicating your intent to the agent inside your works
 "Search for vulnerabilities"   → triggers vulnerability-scanner
 "Troubleshoot Kubernetes"      → triggers kubernetes-troubleshooter
 "Create an architecture diagram" → triggers drawio
+"Reduce tokens / make this cheaper"  → triggers token-compressor
 ```
 
 ## Project Structure

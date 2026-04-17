@@ -7,11 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- `token-compressor` skill to reduce token usage and AI agent costs by compressing prompts, context, and conversation history — with explicit quality-protection rules that prevent code blocks, few-shot examples, regex, and error messages from being altered. Includes a local LLM routing strategy (Ollama) for simple sub-tasks to achieve $0 cost on classify/summarize/format workloads.
 - `drawio` skill to generate native `.drawio` architecture diagrams, flowcharts, ER diagrams, sequence diagrams, and more — with optional export to PNG, SVG, and PDF.
 - `aiSkills-architecture.drawio` — architecture overview diagram of the project.
 
 ### Changed
-- Updated `README.md` skills table and usage examples to include `drawio-diagram`.
+- Updated `README.md` skills table and usage examples to include `token-compressor` and `drawio`.
 
 ## [0.4.0] - 2026-04-12
 
