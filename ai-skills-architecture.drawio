@@ -68,13 +68,16 @@
     </mxCell>
 
     <mxCell id="40" value="Data &amp; Dev" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
-      <mxGeometry x="410" y="230" width="185" height="120" as="geometry"/>
+      <mxGeometry x="410" y="230" width="185" height="160" as="geometry"/>
     </mxCell>
     <mxCell id="41" value="json-to-pydantic" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="40">
       <mxGeometry x="10" y="40" width="165" height="30" as="geometry"/>
     </mxCell>
-    <mxCell id="42" value="drawio-diagram" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="40">
+    <mxCell id="42" value="drawio" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="40">
       <mxGeometry x="10" y="80" width="165" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="43" value="token-compressor" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="40">
+      <mxGeometry x="10" y="120" width="165" height="30" as="geometry"/>
     </mxCell>
 
     <mxCell id="50" value="Terraform" style="swimlane;fontStyle=1;align=center;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
