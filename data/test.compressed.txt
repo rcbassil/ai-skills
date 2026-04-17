@@ -1,0 +1,115 @@
+## AI Overview
+AI simulates human intelligence in machines: learning, reasoning, perception, language. Trained on data, not explicit rules.
+
+Types:
+- Narrow AI (ANI): task-specific (facial recognition, search, driving) — all current AI
+- General AI (AGI): theoretical human-level cross-domain reasoning
+- Generative AI: creates text/images/video/code from patterns (e.g., ChatGPT)
+
+How it works: Data collection → ML training → neural networks → optimization (backpropagation/gradient descent) → inference.
+- Supervised: labeled data | Unsupervised: hidden patterns | Reinforcement: reward/penalty trials
+- Deep learning: multi-layer neural nets for complex pattern recognition
+
+Enablers: big data, GPUs, Transformer architecture (2017+)
+
+Applications: virtual assistants (Siri, Alexa), recommendations (Netflix, YouTube), computer vision, generative tools (ChatGPT), healthcare diagnostics.
+
+---
+
+## AI Tools
+llama.cpp · ollama · opencode · unsloth · lm studio · antigravity IDE · claude cli · gemini cli · nvidia AI Workbench · litert-lm · huggingface · kaggle
+
+---
+
+## MLflow Alternatives
+
+| Alternative | Best For | License |
+|---|---|---|
+| ZenML | Pipeline orchestration/reproducibility | Open Source + Commercial |
+| ClearML | All-in-one MLOps | Open Source + Commercial |
+| W&B | Visualization & collaboration | Commercial |
+| BentoML | Model serving & deployment | Open Source |
+| Kubeflow | Kubernetes pipelines | Open Source |
+| Vertex AI | Google Cloud native | Commercial (GCP) |
+
+Choose an alternative when you need RBAC, multi-user collaboration, automated lineage, or production deployment beyond MLflow's tracking focus.
+
+**MLflow for LLMOps:** Best for: tracing multi-step agent calls (inputs/outputs/latency), LLM-as-a-Judge evaluation, Prompt Registry with versioning, "models from code" deployment (LangGraph/AutoGen).
+Skip if prototyping alone → LangSmith (LangChain ecosystem), Promptfoo/DeepEval (prompt testing only), LangFlow (visual building).
+
+---
+
+## LangSmith
+Framework-agnostic platform for debugging, evaluating, and monitoring LLM apps.
+- Tracing: visual run tree, step-by-step execution capture
+- Evaluation: datasets + AI-based/custom evaluators
+- Monitoring: real-time latency, cost, success-rate dashboards
+- Prompt management: playground + version control
+
+Integrates with LangChain, OpenAI, Anthropic, CrewAI.
+Plans: Developer (5k traces/month free) → Plus/Startup → Enterprise. SOC 2 Type 2, GDPR, HIPAA compliant.
+
+---
+
+## AI Orchestration Tools (2026)
+
+| Tool | Best For |
+|---|---|
+| LangGraph / LangChain | Stateful multi-agent, custom control flow |
+| Microsoft AutoGen | Multi-agent conversations |
+| CrewAI | Role-based autonomous agents |
+| n8n | Visual + code hybrid workflows |
+| Zapier | No-code, app integrations |
+| LlamaIndex | RAG-heavy data agents |
+| Langflow | Visual LangChain builder |
+
+---
+
+## Full Ecosystem Comparison
+
+| Tool | Category | Primary Role | Best For |
+|---|---|---|---|
+| LangChain | LLM Apps | Builder (framework) | Modular chains, RAG, prototyping |
+| LangGraph | LLM Apps | Orchestrator (stateful) | Loops, multi-agent, human-in-the-loop |
+| LangSmith | LLM Apps | Observer (platform) | Tracing, eval, production monitoring |
+| PyTorch | Deep Learning | Research framework | Novel architectures, flexible debugging |
+| TensorFlow | Deep Learning | Production platform | Enterprise scale, mobile (TF Lite) |
+| Keras | Deep Learning | High-level API | Fast prototyping, beginner-friendly |
+| MLflow | MLOps | Lifecycle management | Experiment tracking, model registry |
+| Kubeflow | MLOps | K8s orchestration | Distributed ML pipelines |
+
+When to use:
+- Simple chatbot → LangChain + LangSmith
+- Iterative file-reading/writing agent → LangGraph + LangSmith
+- New neural architecture research → PyTorch
+- Large-scale production model → TensorFlow + Kubeflow
+- Multi-model experiment tracking → MLflow
+
+---
+
+## Confluence AI Agent
+
+### Native (fastest)
+Enable Atlassian Intelligence / Rovo in admin settings, or build a Forge Rovo Agent using the Confluence REST API.
+
+### Custom RAG Pipeline
+1. **Auth:** Generate Atlassian API Token
+2. **Ingest:** Confluence REST API (`/wiki/rest/api/content`) — use LangChain/LlamaIndex ConfluenceLoader
+3. **Parse:** BeautifulSoup on `body.storage.value` HTML
+4. **Embed:** OpenAI `text-embedding-3-small` → vector DB (Pinecone / ChromaDB / Milvus)
+5. **Chat:** Streamlit or Slack bot → retrieve chunks → LLM (GPT-4 / Claude) generates answer
+
+Low-code alternatives: MCP Server for Atlassian, or n8n (Confluence API node + AI Agent node).
+
+### Microsoft Teams Integration
+- **Low-code:** Copilot Studio → add Confluence data source → publish to Teams channel
+- **Pro-code:** Teams Toolkit (VS Code) + Teams AI Framework + LangChain backend → deploy to Azure
+
+### AWS Architecture
+1. Store Confluence credentials in **AWS Secrets Manager**
+2. **Bedrock Knowledge Base** — Confluence connector → Titan embeddings → OpenSearch Serverless
+3. **Bedrock Agent** (Claude) linked to Knowledge Base with behavior instructions
+4. **AWS Chatbot** → authorize Teams workspace → map channel to Bedrock Agent alias
+5. Trigger in Teams: `@aws ask [agent-name] [question]`
+
+For complex pre-processing: Lambda + EventBridge to pull Confluence REST API → S3 → trigger KB ingestion.
