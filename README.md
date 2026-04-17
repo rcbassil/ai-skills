@@ -2,7 +2,7 @@
 
 A curated collection of reusable agent skills for the `.agents/skills` framework. These focused capabilities — from formatting commit messages to generating Pydantic models — can be invoked on demand by an AI coding assistant inside any workspace.
 
-![aiSkills Architecture](docs/aiSkills-architecture.drawio.png)
+![ai-skills Architecture](docs/ai-skills-architecture.drawio.png)
 
 ## Included Skills
 
@@ -32,8 +32,8 @@ A curated collection of reusable agent skills for the `.agents/skills` framework
 ## Installation
 
 ```bash
-git clone https://github.com/rcbassil/aiSkills.git
-cd aiSkills
+git clone https://github.com/rcbassil/ai-skills.git
+cd ai-skills
 
 # Using uv (recommended)
 uv sync
@@ -55,7 +55,7 @@ python main.py
 Expected output:
 
 ```
-Hello from aiSkills!
+Hello from ai-skills!
 ```
 
 ## Usage Examples

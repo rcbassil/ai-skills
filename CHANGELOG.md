@@ -6,10 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+- Renamed project folder and all references from `aiSkills` to `ai-skills` (kebab-case convention).
+- Renamed `aiSkills-architecture.drawio` and `docs/aiSkills-architecture.drawio.png` to `ai-skills-*`.
+- Updated `main.py` greeting, `README.md` clone URL, and diagram image reference to reflect new name.
+
 ### Added
 - `token-compressor` skill to reduce token usage and AI agent costs by compressing prompts, context, and conversation history — with explicit quality-protection rules that prevent code blocks, few-shot examples, regex, and error messages from being altered. Includes a local LLM routing strategy (Ollama) for simple sub-tasks to achieve $0 cost on classify/summarize/format workloads.
 - `drawio` skill to generate native `.drawio` architecture diagrams, flowcharts, ER diagrams, sequence diagrams, and more — with optional export to PNG, SVG, and PDF.
-- `aiSkills-architecture.drawio` — architecture overview diagram of the project.
+- `ai-skills-architecture.drawio` — architecture overview diagram of the project.
 
 ### Changed
 - Updated `README.md` skills table and usage examples to include `token-compressor` and `drawio`.
@@ -22,7 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 - Rewrote `README.md` with real GitHub clone URL, skills table, project structure diagram, and clearer section organization.
 - Renamed source package directory from `src/gemini_skills/` to `src/agent/`.
-- Updated `main.py` greeting from "Hello from geminiSkills!" to "Hello from aiSkills!".
+- Updated `main.py` greeting from "Hello from geminiSkills!" to "Hello from ai-skills!".
 - Renamed project from `Gemini Skills` to `AI Skills` across README, pyproject.toml, and uv.lock.
 - Defined a clear project description in `pyproject.toml`.
 - Moved and consolidated all agent skills from `.agent/skills/` to the new `.agents/skills/` directory.
