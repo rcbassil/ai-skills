@@ -3,13 +3,14 @@
 # requires-python = ">=3.11"
 # dependencies = [
 #   "faster-whisper",
-#   "pydub",
 # ]
 # ///
 """Transcribe audio files to SRT format using faster-whisper with chunked processing."""
 
 import argparse
+import json
 import os
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -31,15 +32,41 @@ def check_dependencies() -> None:
     try:
         import faster_whisper  # noqa: F401
     except ImportError:
-        missing.append("faster-whisper")
-    try:
-        import pydub  # noqa: F401
-    except ImportError:
-        missing.append("pydub")
+        missing.append("faster-whisper  →  pip install faster-whisper")
+    for tool in ("ffmpeg", "ffprobe"):
+        try:
+            subprocess.run([tool, "-version"], capture_output=True, check=True)
+        except FileNotFoundError:
+            missing.append(f"{tool}  →  brew install ffmpeg / apt install ffmpeg")
     if missing:
-        print(f"Missing: {', '.join(missing)}")
-        print(f"Install: pip install {' '.join(missing)}")
+        print("Missing dependencies:")
+        for m in missing:
+            print(f"  - {m}")
         sys.exit(1)
+
+
+def get_duration_ms(path: str) -> int:
+    result = subprocess.run(
+        ["ffprobe", "-v", "quiet", "-show_entries", "format=duration", "-of", "json", path],
+        capture_output=True, text=True, check=True,
+    )
+    return int(float(json.loads(result.stdout)["format"]["duration"]) * 1000)
+
+
+def extract_chunk(src: str, dst: str, start_ms: int, end_ms: int) -> None:
+    """Extract [start_ms, end_ms) from src as 16 kHz mono WAV into dst."""
+    subprocess.run(
+        [
+            "ffmpeg", "-y", "-v", "quiet",
+            "-i", src,
+            "-ss", f"{start_ms / 1000:.3f}",
+            "-to", f"{end_ms / 1000:.3f}",
+            "-ar", "16000",
+            "-ac", "1",
+            dst,
+        ],
+        check=True,
+    )
 
 
 def transcribe_audio(
@@ -54,7 +81,6 @@ def transcribe_audio(
     check_dependencies()
 
     from faster_whisper import WhisperModel
-    from pydub import AudioSegment
 
     src = Path(input_path)
     if not src.exists():
@@ -63,8 +89,7 @@ def transcribe_audio(
     dst = Path(output_path) if output_path else src.with_suffix(".srt")
 
     print(f"[1/4] Loading audio: {src.name}")
-    audio = AudioSegment.from_file(str(src))
-    total_ms = len(audio)
+    total_ms = get_duration_ms(str(src))
     print(f"      Duration: {total_ms / 1000:.1f}s")
 
     compute_type = "float16" if device == "cuda" else "int8"
@@ -82,12 +107,11 @@ def transcribe_audio(
     for idx, core_start_ms in enumerate(range(0, total_ms, chunk_ms)):
         core_end_ms = min(core_start_ms + chunk_ms, total_ms)
 
-        # Extend the fetch window with overlap for audio context
+        # Extend fetch window with overlap on both sides for audio context
         fetch_start_ms = max(0, core_start_ms - overlap_ms)
         fetch_end_ms = min(core_end_ms + overlap_ms, total_ms)
         audio_offset_s = fetch_start_ms / 1000
 
-        chunk_audio = audio[fetch_start_ms:fetch_end_ms]
         pct = (idx + 1) / num_chunks * 100
         print(
             f"      [{idx + 1}/{num_chunks}] "
@@ -98,13 +122,12 @@ def transcribe_audio(
             tmp_path = tmp.name
 
         try:
-            chunk_audio.export(tmp_path, format="wav")
+            extract_chunk(str(src), tmp_path, fetch_start_ms, fetch_end_ms)
 
             raw_segments, _ = model.transcribe(
                 tmp_path,
                 language=language,
                 beam_size=5,
-                # Pass the last transcribed text as context for the next chunk
                 initial_prompt=prev_context,
                 condition_on_previous_text=True,
                 vad_filter=True,
@@ -121,16 +144,13 @@ def transcribe_audio(
                 text = seg.text.strip()
                 if not text:
                     continue
-                # Only accept segments whose START falls in this chunk's core window.
-                # The overlap audio is used purely to give the model context;
-                # its segments belong to the adjacent chunk.
+                # Only keep segments whose start falls in this chunk's core window
                 if core_start_s <= abs_start < core_end_s:
                     chunk_segments.append(
                         {"start": abs_start, "end": min(abs_end, core_end_s + overlap_ms / 1000), "text": text}
                     )
 
             if chunk_segments:
-                # Feed the last few transcribed sentences into the next chunk
                 prev_context = " ".join(s["text"] for s in chunk_segments[-3:])
                 all_segments.extend(chunk_segments)
 

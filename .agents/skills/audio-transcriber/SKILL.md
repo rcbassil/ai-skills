@@ -44,8 +44,9 @@ The skill ships a ready-to-run script at `scripts/transcribe.py` (relative to th
 Find its absolute path and use it in subsequent steps.
 
 The script uses [PEP 723 inline metadata](https://peps.python.org/pep-0723/) — `uv run` reads the
-`# /// script` block and installs `faster-whisper` and `pydub` automatically into an isolated
-environment on first run. No manual `pip install` needed.
+`# /// script` block and installs `faster-whisper` automatically into an isolated environment on
+first run. No manual `pip install` needed. Audio loading uses `ffmpeg` directly (already required),
+so there are no fragile Python-version-sensitive dependencies.
 
 ### Step 3 — Run transcription
 
