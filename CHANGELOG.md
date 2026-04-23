@@ -6,18 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Changed
-- Renamed project folder and all references from `aiSkills` to `ai-skills` (kebab-case convention).
-- Renamed `aiSkills-architecture.drawio` and `docs/aiSkills-architecture.drawio.png` to `ai-skills-*`.
-- Updated `main.py` greeting, `README.md` clone URL, and diagram image reference to reflect new name.
-
 ### Added
+- `audio-transcriber` skill to transcribe audio and video files to `.srt` subtitle format with precise timestamps using faster-whisper. Processes audio in overlapping chunks with `initial_prompt` context passing to prevent vocabulary drift across boundaries. Supports all common formats (mp3, wav, m4a, flac, ogg, mp4) and all Whisper model sizes from `tiny` to `large-v3`.
+- `kubernetes-readonly-troubleshooter` skill for diagnosing Kubernetes resources, logs, network routes, and RBAC in strict read-only mode — enforces zero cluster mutations.
 - `token-compressor` skill to reduce token usage and AI agent costs by compressing prompts, context, and conversation history — with explicit quality-protection rules that prevent code blocks, few-shot examples, regex, and error messages from being altered. Includes a local LLM routing strategy (Ollama) for simple sub-tasks to achieve $0 cost on classify/summarize/format workloads.
 - `drawio` skill to generate native `.drawio` architecture diagrams, flowcharts, ER diagrams, sequence diagrams, and more — with optional export to PNG, SVG, and PDF.
 - `ai-skills-architecture.drawio` — architecture overview diagram of the project.
 
 ### Changed
-- Updated `README.md` skills table and usage examples to include `token-compressor` and `drawio`.
+- Renamed project folder and all references from `aiSkills` to `ai-skills` (kebab-case convention).
+- Renamed `aiSkills-architecture.drawio` and `docs/aiSkills-architecture.drawio.png` to `ai-skills-*`.
+- Updated `main.py` greeting, `README.md` clone URL, and diagram image reference to reflect new name.
+- Updated `README.md` skills table and usage examples to include all new skills.
 
 ## [0.4.0] - 2026-04-12
 

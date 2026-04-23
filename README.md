@@ -8,11 +8,13 @@ A curated collection of reusable agent skills for the `.agents/skills` framework
 
 | Skill | Description |
 |---|---|
+| **audio-transcriber** | Transcribes audio and video files to `.srt` subtitle format with precise timestamps using faster-whisper. Processes audio in overlapping chunks to preserve context across boundaries. |
 | **changelog-tracker** | Manages and tracks changelogs in the project following the "Keep a Changelog" format. |
 | **code-reviewer** | Reviews code changes for quality, readability, maintainability, and conformity to best practices. |
 | **drawio** | Generates native `.drawio` architecture diagrams, flowcharts, ER diagrams, sequence diagrams, and more. |
 | **git-commit-formatter** | Formats git commit messages according to Conventional Commits specification. |
 | **json-to-pydantic** | Converts JSON data snippets into Python Pydantic data models. |
+| **kubernetes-readonly-troubleshooter** | Troubleshoots Kubernetes resources, applications, ingress/routes, and network communication in strict read-only mode — no cluster mutations. |
 | **kubernetes-troubleshooter** | Troubleshoots Kubernetes resources, applications, ingress/routes, gateway API, and network communication. |
 | **license-header-adder** | Adds the standard open-source license header to new source files. |
 | **readme-updater** | Updates the project's README.md with comprehensive, up-to-date documentation. |
@@ -63,16 +65,18 @@ Hello from ai-skills!
 Skills are activated by communicating your intent to the agent inside your workspace. For example:
 
 ```text
-"Update the README"            → triggers readme-updater
-"Commit these changes"         → triggers git-commit-formatter
-"Review my code"               → triggers code-reviewer
-"Document project changes"     → triggers changelog-tracker
-"Convert this JSON to a model" → triggers json-to-pydantic
-"Refactor Terraform code"     → triggers refactor-module
-"Search for vulnerabilities"   → triggers vulnerability-scanner
-"Troubleshoot Kubernetes"      → triggers kubernetes-troubleshooter
-"Create an architecture diagram" → triggers drawio
-"Reduce tokens / make this cheaper"  → triggers token-compressor
+"Update the README"                       → triggers readme-updater
+"Commit these changes"                    → triggers git-commit-formatter
+"Review my code"                          → triggers code-reviewer
+"Document project changes"                → triggers changelog-tracker
+"Convert this JSON to a model"            → triggers json-to-pydantic
+"Refactor Terraform code"                 → triggers refactor-module
+"Search for vulnerabilities"              → triggers vulnerability-scanner
+"Troubleshoot Kubernetes"                 → triggers kubernetes-troubleshooter
+"Troubleshoot Kubernetes (read-only)"     → triggers kubernetes-readonly-troubleshooter
+"Create an architecture diagram"          → triggers drawio
+"Reduce tokens / make this cheaper"       → triggers token-compressor
+"Transcribe this audio / generate SRT"   → triggers audio-transcriber
 ```
 
 ## Project Structure
