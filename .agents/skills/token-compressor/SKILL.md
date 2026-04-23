@@ -154,8 +154,14 @@ Not all sub-tasks need a frontier model. For agent workflows, identify tasks by 
 #### How to run local models (Ollama)
 
 ```bash
-# Install Ollama (macOS)
+# Install Ollama — macOS
 brew install ollama
+
+# Install Ollama — Linux
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Install Ollama — Windows (PowerShell)
+winget install Ollama.Ollama
 
 # Pull a small coding model
 ollama pull qwen2.5-coder:7b
